@@ -2,36 +2,327 @@
 <html>
 
 <head>
-    <title>Registration</title>
-   
+  <title>Login</title>
 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+      /*box-size:border-box;*/
+    }
+
+    body {
+      background: rgb(127, 198, 216);
+      font-family: verdana;
+    }
+
+    .register-form form {
+      background-color: #ffffff;
+      max-width: 400px;
+      margin: auto;
+      /* margin-top: 2px; */
+      padding: 40px 60px;
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+      box-shadow: 0px 2px 10px rgb(131, 130, 130);
+    }
+
+    #container {
+      width: 300px;
+      margin: auto;
+      margin-bottom: 230px;
+    }
+
+    .tabs {
+      display: table-cell;
+      width: 40%;
+      background-color: rgba(11, 177, 224, 0.82);
+      padding: 10px;
+      float: left;
+      text-align: center;
+      vertical-align: middle;
+      border: 2px solid #ffffff;
+      border-bottom: 0px;
+      position: relative;
+      font-size: 16px;
+      color: #ffffff;
+    }
+
+    .tabs:hover,
+    p {
+      cursor: pointer;
+    }
+
+    #lt {
+      background-color: rgb(12, 132, 189);
+    }
+
+    #cont {
+      width: 100%;
+      opacity: 1;
+      height: 300px;
+      background-color: #ffff;
+      border: 2px solid #ffffff;
+    }
+
+    input {
+      display: block;
+      width: 260px;
+      margin: 10px 1px;
+      padding: 10px;
+      color: black;
+      outline: 2px solid #ffffff;
+    }
+
+    input:focus {
+      background: #00FEF4;
+      outline: 2px solid #ffffff;
+      color: #000;
+      border: 2px solid transparent;
+    }
+
+    .submit {
+      width: 283px;
+      color: #6e6e6e;
+      margin: 10px 1px;
+      padding: 10px 12px;
+    }
+
+
+
+    #clear {
+      clear: both;
+    }
+
+    .comm {
+      position: absolute;
+      visibility: hidden;
+    }
+
+    #login {
+      visibility: visible;
+    }
+
+    h3 {
+      display: table-cell;
+      vertical-align: middle;
+      padding: 10px 0px;
+      font-size: 1.5em;
+      color: #000;
+    }
+
+
+    #forgot h3 {
+      display: block;
+      font-size: 15px;
+      margin-top: 30px;
+      text-align: left;
+    }
+
+    #forgot div {
+      margin-top: 30px;
+    }
+
+    p {
+      padding: 10px 0px;
+      font-size: 14px;
+      color: #000;
+    }
+
+    p:hover {
+      text-decoration: underline;
+    }
+  </style>
 </head>
+
 <body>
-
-<div class="register-form">
+  <div class="register-form">
     <form>
-<div id="container">
-    
-        <div id="cont">
-            <div id="register" class="comm">
-                <h3>Register</h3>
-                <input id="fnm"  name="first" type="text" placeholder="First Name" required/> 
-                <input id="lnm"  name="last" type="text" placeholder="Last Name" required/> <br> <br>
-                <input id="pn"  name="phone" type="text" placeholder="Number" size="10" required/> <br> <br>
-                <input id="re" name="email" type="email" placeholder="Email" required/> <br> <br>
-                <input id="rre" name="email" type="email" placeholder="Re write Email" required/> <br> <br>
-                <input id="ct"  name="city" type="text" placeholder="City" required/> <br> <br>
-                <input id="rp" type="password" placeholder="Password" required/> <br> <br>
-                <input id="rrp" type="password" placeholder="Re write Password" required/> <br> <br>
-                <button class="submit" type="submit"  >Submit</button> <br> <br>
+      <div id="container">
+        <div id="tabs">
+          <!-- <a id="lt" class="tabs" onclick="loginTabFun()">Log in</a> -->
+          <a id="rt" class="tabs">Register</a>
 
-            </div >
+          <div id="clear"></div>
         </div>
-    </div>
-    <form>
-</div>
 
+        <div id="cont">
+          <!-- <div id="login" class="comm">
+            <h3>Sign in</h3>
+
+            <input id="se" type="email" name="email" placeholder="Email" required />
+            <input id="sp" type="password" placeholder="Password" required />
+            <button class="submit" type="submit" onclick="login()">Submit</button>
+
+            <p onclick="forTabFun()">Forget Password?</p>
+          </div> -->
+          <div>
+            <h3>Register</h3>
+            <input id="fnm" type="text" placeholder="First Name" required />
+            <input id="lnm" type="text" placeholder="Last Name" required />
+            <input id="gen" type="text" placeholder="Gender" required />
+            <input id="pn" name="phone" type="text" placeholder="Number" size="10" required />
+            <input id="re" name="email" type="email" placeholder="Email" required />
+            <input id="rre" name="email" type="email" placeholder="Re Type Email" required />
+            <input id="ct" name="city" type="text" placeholder="City" required />
+            <input id="rp" type="password" placeholder="Password" required />
+            <input id="rrp" type="password" placeholder="Re write Password" required />
+            <button class="submit" type="submit" onclick="register()">Submit</button>
+
+
+
+          </div>
+          <div id="forgot" class="comm">
+            <h3>Forgot Password</h3>
+            <div>
+              <input id="fe" name="email" type="email" placeholder="Email" required />
+              <button class="submit" type="submit" onclick="forgot()">Submit</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
 </body>
+<script>
+  var emailArray = [];
+  var passwordArray = [];
 
+  // var loginBox = document.getElementById("login");
+  // var regBox = document.getElementById("register");
+  // var forgetBox = document.getElementById("forgot");
+
+  // var loginTab = document.getElementById("lt");
+  // var regTab = document.getElementById("rt");
+
+  // function regTabFun() {
+  //   event.preventDefault();
+
+  //   regBox.style.visibility = "visible";
+  //   loginBox.style.visibility = "hidden";
+  //   forgetBox.style.visibility = "hidden";
+
+  //   regTab.style.backgroundColor = "rgb(12, 132, 189)";
+  //   loginTab.style.backgroundColor = "rgba(11, 177, 224, 0.82)";
+  // }
+  // function loginTabFun() {
+  //   event.preventDefault();
+
+  //   regBox.style.visibility = "hidden";
+  //   loginBox.style.visibility = "visible";
+  //   forgetBox.style.visibility = "hidden";
+
+  //   loginTab.style.backgroundColor = "rgb(12, 132, 189)";
+  //   regTab.style.backgroundColor = "rgba(11, 177, 224, 0.82)";
+  // }
+  // function forTabFun() {
+  //   event.preventDefault();
+
+  //   regBox.style.visibility = "hidden";
+  //   loginBox.style.visibility = "hidden";
+  //   forgetBox.style.visibility = "visible";
+
+  //   regTab.style.backgroundColor = "rgba(11, 177, 224, 0.82)";
+  //   loginTab.style.backgroundColor = "rgba(11, 177, 224, 0.82)";
+
+  // }
+
+
+  function register() {
+    event.preventDefault();
+
+    // var email = document.getElementById("re").value;
+    // var password = document.getElementById("rp").value;
+    // var passwordRetype = document.getElementById("rrp").value;
+    var fname = document.getElementById("fnm").value;
+    var lname = document.getElementById("lnm").value;
+    var phone = document.getElementById("pn").value;
+    var email = document.getElementById("re").value;
+    var city = document.getElementById("ct").value;
+    var emailRetype = document.getElementById("rre").value;
+    var password = document.getElementById("rp").value;
+    var passwordRetype = document.getElementById("rrp").value;
+    var gender = document.getElementById("gen").value;
+
+    // if (email == "") {
+    //   alert("Email required.");
+    //   return;
+    // }
+    // else if (password == "") {
+    //   alert("Password required.");
+    //   return;
+    // }
+    // else if (passwordRetype == "") {
+    //   alert("Password required.");
+    //   return;
+    // }
+    // else if (password != passwordRetype) {
+    //   alert("Password don't match retype your Password.");
+    //   return;
+    // }
+    if (fname == "") {
+      alert("frst name required.");
+      return;
+    }
+    else if (lname == "") {
+      alert("last name required.");
+      return;
+    }
+    else if (gender == "") {
+      alert("gender required.");
+      return;
+    }
+    else if (phone = "") {
+      alert("Phone number required")
+    }
+    else if (email == "") {
+      alert("Email required.");
+      return;
+    }
+    else if (emailRetype == "") {
+      alert("Email Confirmation required")
+    }
+    else if (email != emailRetype) {
+      alert("email don't match retype your email.");
+      return;
+    }
+    else if (password == "") {
+      alert("Password required.");
+      return;
+    }
+    else if (passwordRetype == "") {
+      alert("Password required.");
+      return;
+    }
+    else if (password != passwordRetype) {
+      alert("Password don't match retype your Password.");
+      return;
+    }
+    else if (emailArray.indexOf(email) == -1) {
+      emailArray.push(email);
+      passwordArray.push(password);
+
+      alert(email + "  Thanks for registration. \nTry to login Now");
+
+      document.getElementById("re").value = "";
+      document.getElementById("rp").value = "";
+      document.getElementById("rrp").value = "";
+    }
+    else {
+      alert(email + " is already register.");
+      return;
+    }
+  }
+
+
+
+
+
+
+</script>
 
 </html>
